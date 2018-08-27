@@ -37,7 +37,7 @@
 <script>
 export default {
     props: ['card'],
-
+    name: this.card.label,
     data() {
       return {
         data: [],
