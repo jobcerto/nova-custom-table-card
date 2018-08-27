@@ -5,7 +5,7 @@
           <table cellpadding="0" cellspacing="0" data-testid="resource-table" class="table w-full">
             <thead>
               <tr>
-                <th class="text-left" v-for="head in header">
+                <th class="text-left" :key="index + '-th'" v-for="(head, index) in header">
                   <span class="cursor-pointer inline-flex items-center">
                     {{ head }}
                   </span>
@@ -14,8 +14,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="row in data">
-                <td v-for="column in row.columns" v-html="column"></td>
+              <tr :key="index + '-tr'" v-for="(row, index) in data">
+                <td v-for="(column, index) in row.columns" :key="index + '-td'" v-html="column"></td>
                 <td class="td-fit text-right pr-6">
                   <span v-if="row.view">
                     <router-link
